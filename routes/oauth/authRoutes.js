@@ -13,7 +13,7 @@ router.get(
   passport.authenticate("google", { failureRedirect: "/", session: false }),
   (req, res) => {
     if (!req.user) {
-      return res.redirect("http://localhost:5173/auth/login?error=AuthenticationFailed");
+      return res.redirect("https://shop-vibe-ecom.netlify.app/auth/login?error=AuthenticationFailed");
     }
 
     const { token } = req.user;
@@ -25,7 +25,7 @@ router.get(
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
 
-    res.redirect("http://localhost:5173"); // ✅ Redirect to frontend
+    res.redirect("https://shop-vibe-ecom.netlify.app/"); // ✅ Redirect to frontend
   }
 );
 

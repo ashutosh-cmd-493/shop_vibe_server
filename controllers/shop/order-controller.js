@@ -26,8 +26,10 @@ const createOrder = async (req, res) => {
         payment_method: "paypal",
       },
       redirect_urls: {
-        return_url: "http://localhost:5173/paypal-return",
-        cancel_url: "http://localhost:5173/paypal-cancel",
+        // return_url: "http://localhost:5173/paypal-return",
+        // cancel_url: "http://localhost:5173/paypal-cancel",
+        return_url: "https://shop-vibe-ecom.netlify.app/paypal-return",
+        cancel_url: "https://shop-vibe-ecom.netlify.app/paypal-cancel",
       },
       transactions: [
         {
