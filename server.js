@@ -39,11 +39,36 @@ mongoose
 
 const PORT = process.env.PORT || 5000;
 
+// app.use(
+//   cors({
+//     // origin: "http://localhost:5173",
+//     origin: "https://shopvibe-ecommerce.netlify.app",
+
+//     methods: ["GET", "POST", "DELETE", "PUT"],
+//     allowedHeaders: [
+//       "Content-Type",
+//       "Authorization",
+//       "Cache-Control",
+//       "Expires",
+//       "Pragma",
+//     ],
+//     credentials: true,
+//   })
+// );
+const allowedOrigins = [
+  "http://localhost:5173", // Development
+  "https://shopvibe-ecommerce.netlify.app", // Production
+];
+
 app.use(
   cors({
-    // origin: "http://localhost:5173",
-    origin: "https://shopvibe-ecommerce.netlify.app",
-
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: ["GET", "POST", "DELETE", "PUT"],
     allowedHeaders: [
       "Content-Type",
@@ -55,6 +80,9 @@ app.use(
     credentials: true,
   })
 );
+
+// Handle preflight requests
+app.options("*", cors());
 
 app.use(cookieParser());
 app.use(express.json());
