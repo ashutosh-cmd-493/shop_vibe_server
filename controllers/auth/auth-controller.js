@@ -187,7 +187,7 @@ const sendEmail = async (req, res) => {
 
     // Password reset link
     // const resetLink = `http://localhost:5173/auth/forget/token=${resetToken}`;
-    const resetLink = `https://shop-vibe-server.onrender.com/auth/forget?token=${resetToken}`;
+    const resetLink = `https://shop-vibe-ecom.netlify.app//auth/forget?token=${resetToken}`;
 
 
     // Email options
