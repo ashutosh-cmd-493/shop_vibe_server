@@ -57,7 +57,7 @@ const PORT = process.env.PORT || 5000;
 // );
 const allowedOrigins = [
   "http://localhost:5173", // Development
-  "https://shopvibe-ecommerce.netlify.app", // Production
+  "https://shop-vibe-ecom.netlify.app", // Production
 ];
 
 app.use(
