@@ -78,6 +78,11 @@ passport.use(
           process.env.JWT_SECRET,
           { expiresIn: "60m" }
         );
+        res.cookie("token", req.user.token, {
+          httpOnly: true, // Prevents JavaScript access (more secure)
+          secure: true, // Required for HTTPS (needed for hosting)
+          sameSite: "None", // Required for cross-origin cookies
+        });
 
         return done(null, { user, token }); // ✅ No need to serialize
       } catch (error) {
