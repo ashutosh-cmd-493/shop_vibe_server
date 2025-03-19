@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../../models/User");
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
+const cookieParser = require("cookie-parser");
 require('dotenv').config()
 
 const transporter = nodemailer.createTransport({
