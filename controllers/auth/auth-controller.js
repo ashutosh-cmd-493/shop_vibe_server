@@ -147,6 +147,8 @@ const logoutUser = (req, res) => {
 //auth middleware
 const authMiddleware = async (req, res, next) => {
   const token = req.cookies.token;
+  console.log("oh paa ji this is token",token);
+  
   if (!token)
     return res.status(401).json({
       success: false,
