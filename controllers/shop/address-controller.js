@@ -14,6 +14,7 @@ const addAddress = async (req, res) => {
     const newlyCreatedAddress = new Address({
       userId,
       name,
+      gender,
       address,
       city,
       pincode,
