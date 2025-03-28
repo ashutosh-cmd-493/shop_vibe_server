@@ -2,7 +2,7 @@ const Address = require("../../models/Address");
 
 const addAddress = async (req, res) => {
   try {
-    const { userId,name, address, city, pincode, phone, notes } = req.body;
+    const { userId,name,gender, address, city, pincode, phone, notes } = req.body;
 
     if (!userId || !address || !city || !pincode || !phone || !notes) {
       return res.status(400).json({
